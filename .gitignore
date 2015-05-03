@@ -1,0 +1,31 @@
+# Répertoire spécifique à l'environnement MAC
+.DS_Store
+# Fichier spécifique Windows
+Thumbs.db
+# Fichiers et répertoires spécifiques à IntelliJ IDEA
+test-output/
+out/
+.idea/
+*.iml
+*.ipr
+# Fichiers et répertoires spécifiques à Eclipse
+bin/
+.settings/
+.metadata/
+.classpath
+.project
+# Fichiers jasper compilés
+*.jasper
+# Fichiers et répertoires de travail de Maven
+target/
+# Fichiers et répertoires temporaires
+tmp/
+temp/
+*.tmp
+# Fichiers de sauvegarde logiciels
+*.bak
+# Fichiers et répertoires de logs
+log/
+*.log
+
+frontend/src/main/webapp/Simba/
