@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+  <context:annotation-config/>
+
+  <tx:annotation-driven transaction-manager="transactionManager"/>
+  <import resource="classpath:context/db-context.xml"/>
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    <property name="locations">
+      <list>
+        <value>classpath:service-config.properties</value>
+      </list>
+    </property>
+  </bean>
+
+
+  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <constructor-arg ref="dataSource"/>
+  </bean>
+
+
+  <!-- DAO des utilisateurs -->
+  <bean id="utilisateurDao" class="com.groupemre.simba2.dao.utilisateur.UtilisateurDAO"/>
+  <bean id="userService" class="com.groupemre.simba2.services.administration.UserService"/>
+
+  <!-- Services géographiques -->
+  <bean id="paysService" class="com.groupemre.simba2.services.geographie.PaysService"/>
+  <bean id="regionService" class="com.groupemre.simba2.services.geographie.RegionService"/>
+  <bean id="departementService" class="com.groupemre.simba2.services.geographie.DepartementService"/>
+  <bean id="communeService" class="com.groupemre.simba2.services.geographie.CommuneService"/>
+  <bean id="agglomertionService" class="com.groupemre.simba2.services.geographie.AgglomerationService"/>
+
+  <!-- Dao géographiques -->
+  <bean id="paysDao" class="com.groupemre.simba2.dao.geographie.PaysDAO"/>
+  <bean id="regionDao" class="com.groupemre.simba2.dao.geographie.RegionDAO"/>
+  <bean id="departementDao" class="com.groupemre.simba2.dao.geographie.DepartementDAO"/>
+  <bean id="communeDao" class="com.groupemre.simba2.dao.geographie.CommuneDAO"/>
+  <bean id="communeWithEpciDao" class="com.groupemre.simba2.dao.geographie.CommuneWithEpciDAO"/>
+  <bean id="agglomerationDao" class="com.groupemre.simba2.dao.geographie.AgglomerationDAO"/>
+
+
+</beans>
