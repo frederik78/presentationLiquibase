@@ -3,6 +3,7 @@ package com.techsolcom.dto.carnet;
 
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Personne {
     @Column(name = "psn_naissance")
     private Date naissance;
 
-    @ManyToOne
+    @OneToMany(mappedBy = "personne")
     private List<AdresseContact> adressesContact;
 
     public Integer getId() {

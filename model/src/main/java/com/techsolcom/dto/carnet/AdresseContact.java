@@ -8,8 +8,6 @@ import javax.persistence.*;
 @Table(name = "adressecontact_act")
 public class AdresseContact {
 
-
-
     @Id
     @Column(name = "act_id", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +16,7 @@ public class AdresseContact {
     @Column(name = "act_libelle")
     private String libelle;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "psn_personne_id")
     private Personne personne;
 
