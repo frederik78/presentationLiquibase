@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="fminatchy">
+        <comment>Ajout des types de contacts</comment>
+        <sql>
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(1, 'yahoo');
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(2, 'linkedIn');
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(3, 'viadéo');
+        </sql>
+    </changeSet>
+    <changeSet id="2" author="fminatchy">
+        <comment>Ajout de contacts</comment>
+        <sql>
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(4, 'google');
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(5, 'facebook');
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(6, 'techsolcom');
+            INSERT INTO typecontact_tct(tct_id, tct_nom) VALUES(7, 'r3d');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

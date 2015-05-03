@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="fminatchy">
+        <comment>Création des tables de adresseContact</comment>
+        <sql>
+            CREATE TABLE adressecontact_act (
+            act_id INTEGER PRIMARY KEY,
+            act_libelle VARCHAR(255),
+            tct_typecontact_id INTEGER,
+            psn_personne_id INTEGER,
+            CONSTRAINT FK_00_ACT_PSN FOREIGN KEY (PSN_PERSONNE_ID) REFERENCES personne_psn (PSN_ID),
+            CONSTRAINT FK_01_ACT_TCT FOREIGN KEY (TCT_TYPECONTACT_ID) REFERENCES typecontact_tct (TCT_ID)
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>
