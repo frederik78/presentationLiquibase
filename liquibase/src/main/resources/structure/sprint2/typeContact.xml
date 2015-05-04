@@ -11,7 +11,7 @@
     <comment>Création des tables de type contacts</comment>
     <sql>
       CREATE TABLE typecontact_tct (
-      tct_id INTEGER PRIMARY KEY,
+      tct_id INTEGER PRIMARY KEY AUTO_INCREMENT ,
       tct_nom VARCHAR(255)
       );
     </sql>

@@ -11,7 +11,7 @@
     <comment>Création des tables de pays</comment>
     <sql>
       CREATE TABLE pays_pay (
-      pay_id INTEGER PRIMARY KEY,
+      pay_id INTEGER PRIMARY KEY AUTO_INCREMENT ,
       pay_nom VARCHAR(255),
       pay_code VARCHAR(2)
       );

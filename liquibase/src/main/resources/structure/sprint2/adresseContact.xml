@@ -11,7 +11,7 @@
         <comment>Création des tables de adresseContact</comment>
         <sql>
             CREATE TABLE adressecontact_act (
-            act_id INTEGER PRIMARY KEY,
+            act_id INTEGER PRIMARY KEY AUTO_INCREMENT ,
             act_libelle VARCHAR(255),
             tct_typecontact_id INTEGER,
             psn_personne_id INTEGER,

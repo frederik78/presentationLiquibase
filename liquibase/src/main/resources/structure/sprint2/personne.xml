@@ -11,7 +11,7 @@
     <comment>Création des tables de personne</comment>
     <sql>
       CREATE TABLE personne_psn (
-      psn_id INTEGER PRIMARY KEY,
+      psn_id INTEGER PRIMARY KEY AUTO_INCREMENT ,
       psn_prenom VARCHAR(255),
       psn_nom VARCHAR(255),
       psn_naissance DATE
