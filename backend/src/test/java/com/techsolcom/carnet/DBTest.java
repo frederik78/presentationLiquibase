@@ -26,7 +26,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Classe de test générique permettant de charger avec Liquibase une base de données de test, et de la détruire après exécution des tests.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:db-context.xml")
+@ContextConfiguration(locations = {
+        "classpath:db-context.xml", "classpath:service-context.xml"})
 public abstract class DBTest {
 
     public static final String DB_STRUCTURE = "structure.xml";
