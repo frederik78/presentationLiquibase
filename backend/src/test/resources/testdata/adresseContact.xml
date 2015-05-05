@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <preConditions onError="HALT">
+        <dbms type="h2"/>
+    </preConditions>
+    <changeSet id="1" author="fminatchy">
+        <comment>Insertion de valeurs dans la table adresseContact</comment>
+        <sql>
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (1, 'Arnaud.Salaun@yahoo.fr', 10);
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (1, 'Eric.Neau@yahoo.fr', 20);
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (2, 'Arnaud.Salaun@linkedin.ca', 10);
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (2, 'Eric.Neau@linkedin.ca', 20);
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (6, 'Arnaud.Salaun@techsolcom.ca', 10);
+            INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (6, 'Eric.Neau@techsolcom.ca', 20);
+        </sql>
+        <rollback>
+            <sql>
+                DELETE FROM adressecontact_act;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
