@@ -1,5 +1,6 @@
 package com.techsolcom.carnet;
 
+import liquibase.Contexts;
 import liquibase.Liquibase;
 import liquibase.database.jvm.JdbcConnection;
 import liquibase.exception.LiquibaseException;
@@ -21,6 +22,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -40,11 +42,9 @@ public abstract class DBTest {
 
     protected static String[] testDataResources = new String[]{};
 
-    private static final AtomicBoolean structureInit = new AtomicBoolean(false);
-
     private static Date structureCreated = null;
 
-    private static String IN_MEMORY_DB = "jdbc:h2:file:~/tmp/carnet;MODE=MySQL";
+    private static String IN_MEMORY_DB = "jdbc:h2:~/tmp/carnet;MODE=MySQL";
     //    private static String IN_MEMORY_DB = "jdbc:h2:mem:carnet;MODE=MySQL;DB_CLOSE_DELAY=-1";
     private static String DB_PASSWORD = "sa";
     private static String DB_LOGIN = "sa";
@@ -60,11 +60,7 @@ public abstract class DBTest {
 
     @BeforeClass
     public static void prepareTestDatabase() throws SQLException, LiquibaseException, ClassNotFoundException {
-
-        if (!structureInit.getAndSet(true)) {
-            createStructure();
-            structureCreated = new Date();
-        }
+        createStructure();
         insertTestData();
     }
 
@@ -75,10 +71,10 @@ public abstract class DBTest {
         try (Connection connection = DriverManager.getConnection(IN_MEMORY_DB, DB_LOGIN, DB_PASSWORD)) {
             final JdbcConnection jdbcConnection = new JdbcConnection(connection);
             Liquibase liquibase = new Liquibase(DB_STRUCTURE, LIQUIBASE_RESOURCE_ACCESSOR, jdbcConnection);
-            liquibase.update("");
+            liquibase.update((Contexts)null);
 
             liquibase = new Liquibase(DB_DATA, LIQUIBASE_RESOURCE_ACCESSOR, jdbcConnection);
-            liquibase.update("");
+            liquibase.update((Contexts)null);
 
         }
     }
@@ -88,21 +84,32 @@ public abstract class DBTest {
             final JdbcConnection jdbcConnection = new JdbcConnection(connection);
             for (String testDataResource : testDataResources) {
                 final Liquibase liquibase = new Liquibase(testDataResource, LIQUIBASE_RESOURCE_ACCESSOR, jdbcConnection);
-                liquibase.update("");
+//                liquibase.getDatabase().setDefaultSchemaName("carnet");
+//                liquibase.getDatabase().setLiquibaseCatalogName("carnet");
+                liquibase.update((Contexts)null);
             }
         }
     }
 
     @AfterClass
     public static void dropTestData() throws SQLException, LiquibaseException, ClassNotFoundException {
-        // Le rollback se fait en ordre inverse d'application.
-        ArrayUtils.reverse(testDataResources);
         try (Connection connection = DriverManager.getConnection(IN_MEMORY_DB, DB_LOGIN, DB_PASSWORD)) {
             final JdbcConnection jdbcConnection = new JdbcConnection(connection);
-            for (String testDataResource : testDataResources) {
-                final Liquibase liquibase = new Liquibase(testDataResource, LIQUIBASE_RESOURCE_ACCESSOR, jdbcConnection);
-                liquibase.rollback(structureCreated, "");
-            }
+            final Statement stm =jdbcConnection.createStatement();
+            // DROP ALL OBJECTS IS A H2 STATMENT
+            stm.execute("DROP ALL OBJECTS");
         }
     }
+//    @AfterClass
+//    public static void dropTestData() throws SQLException, LiquibaseException, ClassNotFoundException {
+//        // Le rollback se fait en ordre inverse d'application.
+//        ArrayUtils.reverse(testDataResources);
+//        try (Connection connection = DriverManager.getConnection(IN_MEMORY_DB, DB_LOGIN, DB_PASSWORD)) {
+//            final JdbcConnection jdbcConnection = new JdbcConnection(connection);
+//            for (String testDataResource : testDataResources) {
+//                final Liquibase liquibase = new Liquibase(testDataResource, LIQUIBASE_RESOURCE_ACCESSOR, jdbcConnection);
+//                liquibase.rollback(structureCreated, "");
+//            }
+//        }
+//    }
 }
