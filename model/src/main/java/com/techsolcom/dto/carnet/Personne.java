@@ -11,8 +11,6 @@ import java.util.List;
 @Table(name = "personne_psn")
 public class Personne {
 
-
-
     @Id
     @Column(name = "psn_id", unique = true)
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +27,10 @@ public class Personne {
 
     @OneToMany(mappedBy = "personne")
     private List<AdresseContact> adressesContact;
+
+    @OneToOne()
+    @JoinColumn(name = "pay_pays_id")
+    private Pays pays;
 
     public Integer getId() {
         return id;
@@ -70,4 +72,11 @@ public class Personne {
         this.adressesContact = adressesContact;
     }
 
+    public Pays getPays() {
+        return pays;
+    }
+
+    public void setPays(Pays pays) {
+        this.pays = pays;
+    }
 }

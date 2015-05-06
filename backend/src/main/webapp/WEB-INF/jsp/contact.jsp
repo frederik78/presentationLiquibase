@@ -3,7 +3,7 @@
 
 <html>
 <body>
-<h1>${personne.prenom} ${personne.nom}</h1>
+<h1>${personne.prenom} ${personne.nom}, en vacance au : ${personne.pays.nom}</h1>
 <table>
     <thead>
     <tr>
@@ -17,6 +17,8 @@
         <tr>
             <td>
                 <c:out value="${adresse.typeContact.nom}"/></td>
+            <td>
+                <c:out value="${adresse.libelle}"/></td>
             <td>
                 <c:out value="${adresse.libelle}"/></td>
         </tr>

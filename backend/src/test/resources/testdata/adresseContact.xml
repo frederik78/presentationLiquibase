@@ -19,10 +19,10 @@
             INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (6, 'Arnaud.Salaun@techsolcom.ca', 10);
             INSERT INTO adressecontact_act (tct_typecontact_id, act_libelle, psn_personne_id) VALUES (6, 'Eric.Neau@techsolcom.ca', 20);
         </sql>
-        <rollback>
-            <sql>
-                DELETE FROM adressecontact_act;
-            </sql>
-        </rollback>
+        <!--<rollback>-->
+            <!--<sql>-->
+                <!--DELETE FROM adressecontact_act;-->
+            <!--</sql>-->
+        <!--</rollback>-->
     </changeSet>
 </databaseChangeLog>

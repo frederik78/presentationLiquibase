@@ -9,16 +9,23 @@
     <preConditions onError="HALT">
         <dbms type="h2"/>
     </preConditions>
-  <changeSet id="5" author="fminatchy">
+  <changeSet id="1" author="fminatchy">
     <comment>Insertion valeurs de tests dans table de personne</comment>
     <sql>
-        INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance, PAY_PAYS_ID) VALUES(10, 'Arnaud', 'Salaun', '1949-05-06',82);
-        INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance, PAY_PAYS_ID) VALUES(20, 'Eric', 'Neau', '1952-01-08',29);
+        INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance) VALUES(10, 'Arnaud', 'Salaun', '1949-05-06');
+        INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance) VALUES(20, 'Eric', 'Neau', '1952-01-08');
     </sql>
-     <rollback>
-         <sql>
-             DELETE FROM personne_psn;
-         </sql>
-     </rollback>
+     <!--<rollback>-->
+         <!--<sql>-->
+             <!--DELETE FROM personne_psn;-->
+         <!--</sql>-->
+     <!--</rollback>-->
+  </changeSet>
+  <changeSet id="2" author="fminatchy">
+      <comment>Insertion pays</comment>
+      <sql>
+          UPDATE personne_psn SET PAY_PAYS_ID = 82 WHERE PSN_ID = 10;
+          UPDATE personne_psn SET PAY_PAYS_ID = 20 WHERE PSN_ID = 20;
+      </sql>
   </changeSet>
 </databaseChangeLog>
