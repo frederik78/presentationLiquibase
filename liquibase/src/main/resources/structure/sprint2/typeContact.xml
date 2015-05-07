@@ -15,5 +15,8 @@
       tct_nom VARCHAR(255)
       );
     </sql>
+      <rollback>
+          DROP TABLE typecontact_tct;
+      </rollback>
   </changeSet>
 </databaseChangeLog>

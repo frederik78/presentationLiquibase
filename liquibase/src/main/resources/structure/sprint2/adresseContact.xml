@@ -19,5 +19,8 @@
             CONSTRAINT FK_01_ACT_TCT FOREIGN KEY (TCT_TYPECONTACT_ID) REFERENCES typecontact_tct (TCT_ID)
             );
         </sql>
+        <rollback>
+            DROP TABLE adressecontact_act;
+        </rollback>
     </changeSet>
 </databaseChangeLog>

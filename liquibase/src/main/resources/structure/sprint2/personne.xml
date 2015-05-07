@@ -17,6 +17,9 @@
       psn_naissance DATE
       );
     </sql>
+    <rollback>
+          DROP TABLE personne_psn;
+     </rollback>
   </changeSet>
 
 </databaseChangeLog>
