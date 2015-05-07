@@ -39,6 +39,7 @@ public class TestPersonnesDao extends DBTest {
 //        final Personne personne = personneRepository.findPersonAndContactAndProvider(10);
 //        assertThat(personne.getPrenom()).isEqualTo("Arnaud");
 //		assertThat(personne.getAdressesContact()).hasSize(3);
+// //      assertThat(personne.getPays().getNom()).isEqualTo("COLOMBIA");
 //	}
 
 }
