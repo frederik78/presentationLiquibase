@@ -21,11 +21,11 @@
          <!--</sql>-->
      <!--</rollback>-->
   </changeSet>
-  <changeSet id="2" author="fminatchy">
-      <comment>Insertion pays</comment>
-      <sql>
-          UPDATE personne_psn SET PAY_PAYS_ID = 82 WHERE PSN_ID = 10;
-          UPDATE personne_psn SET PAY_PAYS_ID = 20 WHERE PSN_ID = 20;
-      </sql>
-  </changeSet>
+  <!--<changeSet id="2" author="fminatchy">-->
+      <!--<comment>Insertion pays</comment>-->
+      <!--<sql>-->
+          <!--UPDATE personne_psn SET PAY_PAYS_ID = 82 WHERE PSN_ID = 10;-->
+          <!--UPDATE personne_psn SET PAY_PAYS_ID = 20 WHERE PSN_ID = 20;-->
+      <!--</sql>-->
+  <!--</changeSet>-->
 </databaseChangeLog>

@@ -9,7 +9,6 @@
     <!-- sprint 1 -->
     <!-- ... -->
     <!-- sprint 2 -->
-    <include file="structure/sprint2/pays.xml"/>
 
     <include file="structure/sprint2/personne.xml"/>
     <include file="structure/sprint2/typeContact.xml"/>

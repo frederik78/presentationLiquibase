@@ -11,6 +11,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface PersonneRepository extends JpaRepository<Personne, Integer>{
 
-    @Query("Select personne from Personne personne join fetch personne.adressesContact adresse join fetch adresse.typeContact join fetch personne.pays  where personne.id = :id")
+    @Query("Select personne from Personne personne join fetch personne.adressesContact adresse join fetch adresse.typeContact  where personne.id = :id")
     Personne findPersonAndContactAndProvider(@Param(value = "id") Integer id);
 }

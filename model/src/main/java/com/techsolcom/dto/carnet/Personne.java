@@ -28,9 +28,9 @@ public class Personne {
     @OneToMany(mappedBy = "personne")
     private List<AdresseContact> adressesContact;
 
-    @OneToOne()
-    @JoinColumn(name = "pay_pays_id")
-    private Pays pays;
+//    @OneToOne()
+//    @JoinColumn(name = "pay_pays_id")
+//    private Pays pays;
 
     public Integer getId() {
         return id;
@@ -72,11 +72,11 @@ public class Personne {
         this.adressesContact = adressesContact;
     }
 
-    public Pays getPays() {
-        return pays;
-    }
+//    public Pays getPays() {
+//        return pays;
+//    }
 
-    public void setPays(Pays pays) {
-        this.pays = pays;
-    }
+//    public void setPays(Pays pays) {
+//        this.pays = pays;
+//    }
 }

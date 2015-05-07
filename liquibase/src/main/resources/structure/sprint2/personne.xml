@@ -18,15 +18,5 @@
       );
     </sql>
   </changeSet>
-  <changeSet id="2" author="fminatchy">
-    <comment>Ajout de clé étrangère sur les pays</comment>
-    <sql>
-      ALTER TABLE personne_psn ADD COLUMN `PAY_PAYS_ID` INTEGER NULL;
-      ALTER TABLE personne_psn ADD CONSTRAINT FK_00_PSN_PAY FOREIGN KEY (PAY_PAYS_ID) REFERENCES pays_pay(PAY_ID);
-    </sql>
-  </changeSet>
-
-
-
 
 </databaseChangeLog>
