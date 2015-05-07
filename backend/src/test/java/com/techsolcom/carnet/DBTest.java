@@ -62,6 +62,9 @@ public abstract class DBTest {
     public static void prepareTestDatabase() throws SQLException, LiquibaseException, ClassNotFoundException {
         createStructure();
         insertTestData();
+
+        // Servira un jour pour faire un rollback uniquement sur les dates et ne plus supprimer toute la base
+        structureCreated= new Date();
     }
 
     public static void createStructure() throws SQLException, LiquibaseException, ClassNotFoundException {
