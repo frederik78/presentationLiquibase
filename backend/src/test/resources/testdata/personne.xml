@@ -15,11 +15,6 @@
         INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance) VALUES(10, 'Arnaud', 'Salaun', '1949-05-06');
         INSERT INTO  personne_psn (psn_id, psn_prenom, psn_nom, psn_naissance) VALUES(20, 'Eric', 'Neau', '1952-01-08');
     </sql>
-     <!--<rollback>-->
-         <!--<sql>-->
-             <!--DELETE FROM personne_psn;-->
-         <!--</sql>-->
-     <!--</rollback>-->
   </changeSet>
   <!--<changeSet id="2" author="fminatchy">-->
       <!--<comment>Insertion pays</comment>-->
