@@ -26,13 +26,13 @@ public class TestPersonnesDao extends DBTest {
         prepareTestDatabase();
 	}
 
-    @Test
-    public void find_everybody()
-    {
+//    @Test
+//    public void find_everybody()
+//    {
 //        final List<Personne> personnes = personneRepository.findAll();
 //        assertThat(personnes).hasSize(2);
 //        assertThat(extractProperty("pays.nom").from(personnes)).contains("COLOMBIA", "CONGO");
-    }
+//    }
 
 //	@Test
 //	public void find_contact_and_fetch_addresses_and_provider() {
