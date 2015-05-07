@@ -11,6 +11,7 @@
     <!-- ... -->
     <!-- sprint 2 -->
   <include file="donnees/sprint2/typeContact.xml"/>
+  <!--<include file="donnees/sprint2/pays.xml"/>-->
 
 </databaseChangeLog>
 
